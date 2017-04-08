@@ -1,0 +1,74 @@
+module: project/project_input
+
+method: 
+
+	new_project: 提交新项目
+		1. project_name: (string), project name
+		2. project_type: (int/string), (0: module 站内模块; 1: private 私有项目; 2: public 公共项目)
+		retuen: array('err', 'msg', 'project_uuid')
+
+	save_project_image: 上传项目图片
+		1. project_uuid: (string), project uuid
+		2. project_image: (image file) (less than 20MB)
+		return: array('err', 'msg', 'url')
+
+	save_project_image_base64: 上传项目图片（base64 image data）
+		1. project_uuid: (string), project uuid
+		2. project_image_base64: (string), base64 image data (less than 20MB)
+		return: array('err', 'msg', 'url')
+
+	save_project_info: 修改项目信息
+		1. project_uuid: (string), project uuid
+		1. project_name: (string), project name
+		1. project_intro: (string), project introduct
+		return: array('err', 'msg')
+
+	edit_project_status: 设置项目上线状态
+		1. project_uuid: (string), project uuid
+		2. project_online: (int/string), (0: offline 下线; 1: online 上线)
+		return: array('err', 'msg')
+
+	change_project_status: 管理项目（屏蔽，普通，认证）
+	    Need administrator authority
+		1. project_status: (string/int), (0: banned; 1: normal; 2: verified)
+		1. project_uuid: (string), project uuid
+		return: array('err', 'msg')
+
+	new_project_version: 新版本
+		1. project_uuid: (string), project uuid
+		2. project_version: (string), version
+		3. update_note: (string), update note
+		return: array('err', 'msg')
+
+	edit_project_version: 修改版本
+		1. project_uuid: (string), project uuid
+		2. project_version: (string), version
+		3. update_note: (string), update note
+		return: array('err', 'msg')
+
+	join_team: 申请加入团队
+		1. project_uuid: (string), project uuid
+		return: array('err', 'msg')
+
+	quit_team: 退出团队
+		1. project_uuid: (string), project uuid
+		return: array('err', 'msg')
+
+	team_control: 团队管理
+		1. project_uuid: (string), project uuid
+		2. mate_uuid: (string), user uuid
+		3. mate_action: (string), action to a mate (accept: accept the person to join the team; delete: delete or kick out a mate; block: block a user out of your team)
+		return: array('err', 'msg')
+
+	watch_action: 关注项目
+		1. watch_uuid: (string), project uuid
+		return: array('err' => (10532: watched; 10533: unwatched), 'msg')
+
+	like_action: 喜欢项目（点赞）
+		1. like_uuid: (string), project uuid
+		return: array('err' => (10534: liked; 10535: unliked), 'msg')
+
+	edit_project_path: 修改项目路径（一个月只允许修改3次，认证项目不允许修改）
+		1. project_uuid: (string), project uuid
+		1. project_path: (string), project path (path or url)
+		return: array('err', 'msg')

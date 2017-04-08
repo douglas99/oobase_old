@@ -1,0 +1,15 @@
+module: note/note_output
+
+method: 
+
+	get_note: 获取笔记（子回复限定为获取5条）
+		1. project_uuid: (string), project uuid
+		2. note_fetch: optional, (int/string), number of project in the list (default: all)
+		3. note_page: optional, (int/string), page number (default: 1)
+		retuen: array(note list)
+
+	get_note_reply: 获取子回复
+		1. project_uuid: (string), project uuid
+		2. root_note_id: (int/string), reply root note id
+		3. last_note_id: (int/string), last reply note id in the reply list
+		retuen: array(reply note list)

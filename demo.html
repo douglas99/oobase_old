@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <!--
+            <script type="text/javascript" src="../code/_script/core.js">
+            </script>
+        -->
+</head>
+
+<body>
+    <form action="#">
+        <h2> 你的猜测：</h2> 颜色：
+        <input type="text" name="color" /> 形状：
+        <input type="text" name="shape" /> 大小：
+        <input type="text" name="size" /> 味道：
+        <input type="text" name="taste"> 气味：
+        <input type="text" name="smell">
+        <input type="reset" value="重置">
+        <input type="submit" value="提交" />
+    </form>
+    <p id="content"></p>
+    <script>
+    var api = 'api.php';
+    window.onload = function() {
+
+        var fm = document.getElementsByTagName('form')[0];
+        // console.log(fm);
+        fm.addEventListener('submit', function(e) {
+            var en = e || window.event;
+            var fd = new FormData(this);
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (200 === xhr.status && 4 === xhr.readyState) {
+                    var data = JSON.parse(xhr.responseText);
+                    ajax_parse({
+                        'data': data,
+                        'callback': function(data) {
+                            console.log(data);
+                            var html = '';
+                            var val = document.getElementById('content');
+
+                            if ('' !== data['fruit_picker/picker/guess']) {
+                                html += '你猜测水果有：'
+                                for (var key in data['fruit_picker/picker/guess']) {
+                                    html += data['fruit_picker/picker/guess'][key] + '&nbsp;';
+                                }
+                                html += '<br>';
+
+                            }
+                            if (data['fruit_picker/picker/color']) {
+                                html += '相同颜色的水果有：'
+                                for (var i = data['fruit_picker/picker/color'].length - 1; i >= 0; i--) {
+                                    html += data['fruit_picker/picker/color'][i] + ',';
+                                }
+                                html += '<br>';
+                            }
+                            if (data['fruit_picker/picker/shape']) {
+                                html += '相同形状的水果有：'
+                                for (var i = data['fruit_picker/picker/shape'].length - 1; i >= 0; i--) {
+                                    html += data['fruit_picker/picker/shape'][i];
+                                }
+                                html += '<br>';
+
+                            }
+                            if (data['fruit_picker/picker/size']) {
+                                html += '相同大小的水果有：'
+                                for (var i = data['fruit_picker/picker/size'].length - 1; i >= 0; i--) {
+                                    html += data['fruit_picker/picker/size'][i];
+                                }
+                                html += '<br>';
+
+                            }
+                            if (data['fruit_picker/picker/taste']) {
+                                html += '相同味道的水果有：'
+                                for (var i = data['fruit_picker/picker/taste'].length - 1; i >= 0; i--) {
+                                    html += data['fruit_picker/picker/taste'][i];
+                                }
+                                html += '<br>';
+
+                            }
+                            if (data['fruit_picker/picker/taste']) {
+                                html += '相同气味的水果有：'
+                                for (var i = data['fruit_picker/picker/taste'].length - 1; i >= 0; i--) {
+                                    html += data['fruit_picker/picker/taste'][i];
+                                }
+                                html += '<br>';
+
+                            }
+                            val.innerHTML = html;
+
+
+                        },
+                        'type': 'get'
+                    })
+                }
+            }
+            xhr.open('post', 'demo.php');
+            xhr.send(fd);
+            en.preventDefault();
+        });
+    }
+
+    function ajax_parse(object) {
+        var data = object.data || null;
+        var callback = object.callback || null;
+        var url = object.url || api;
+        var type = object.type ? object.type : (data ? 'post' : 'get');
+        var xhr = null;
+        var access_key = object.key || null;
+        var dataType = object.dataType || 'json';
+        if (window.XMLHttpRequest) xhr = new XMLHttpRequest();
+        else if (window.ActiveXObject) {
+            var Version = [
+                'MSXML2.XMLHTTP.6.0',
+                'MSXML2.XMLHTTP.5.0',
+                'MSXML2.XMLHTTP.4.0',
+                'MSXML2.XMLHTTP.3.0',
+                'MSXML2.XMLHTTP.2.0',
+                'Microsoft.XMLHTTP'
+            ];
+            var i, Versions = Version.length;
+            for (i = 0; i < Versions; ++i) {
+                try {
+                    HttpRequest = new ActiveXObject(Version[i]);
+                    break;
+                } catch (e) {
+                    console.log(Version[i] + ' Not Support!');
+                }
+            }
+        } else {
+            console.log('AJAX Not Support!');
+            return;
+        }
+        if (null !== xhr) {
+            var query = null;
+            if (null !== data) {
+                if ('string' === typeof(data)) query = data;
+                else if ('object' === typeof(data)) {
+                    var key, queries = [];
+                    if (!Array.isArray(data))
+                        for (key in data) queries.push(encodeURIComponent(key) + '=' + encodeURIComponent(data[key]));
+                    query = queries.join('&');
+                }
+            }
+            if ('get' == type && 　null !== query) {
+                url += '?' + query;
+                console.log(query);
+                query = null;
+            }
+            if ('post' === type) xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+            if (null !== access_key) xhr.setRequestHeader('Access_Key', access_key);
+            xhr.open(type, url);
+            xhr.onreadystatechange = function() {
+                if (4 === xhr.readyState) {
+                    if (200 === xhr.status) {
+                        if (null !== callback) callback('json' === dataType ? JSON.parse(xhr.responseText) : xhr.responseText);
+                        else console.log('AJAX failed with HTTP Status Code: ' + xhr.status);
+                    }
+                }
+            }
+            xhr.send(query);
+        }
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+module: project/project_output
+
+method:
+
+    get_project_auth：获取某人在团队中的权限
+		1. project_uuid: (string), project uuid
+		1. user_uuid: (string), user uuid
+		return: int(-1: not in team; 0: banned; 1: requested; 2: leader; 3: teammate)
+
+	get_project_list: 获取项目列表
+		1. project_status: optional, (int/string), (0: banned; 1: normal; 2: verified; default: 1,2)
+		2. project_online: optional, (int/string), (0: offline; 1: online; default: 1)
+		3. project_type: optional, (int/string), (0: module; 1: private; 2: public; default: 0,2)
+		4. project_fetch: optional, (int/string), number of project in the list (default: all)
+		4. project_page: optional, (int/string), page number (default: 1)
+		return: array(project uuid list)
+
+	get_project_info: 获取项目简要信息
+		1. project_list: (string/array), project uuid list
+		return: array(project information list)
+
+	get_in_team_cnt: 获取单用户参与项目数量
+		1. user_uuid: (string), user uuid
+		2. auth_type: optional, (int/string/array), authority in the team (0: banned; 1: requested; 2: leader; 3: teammate; default: all)
+		return: array(join team count)
+
+	get_watched_cnt: 获取项目关注数量
+		1. watched_list: (string/array), project uuid list
+		return: array(uuid, watcher count)
+
+	get_liked_cnt: 获取项目点赞数量
+		1. liked_list: (string/array), project uuid list
+		return: array(uuid, liker count)
+
+	get_in_team_list: 获取参与项目列表
+		1. user_uuid: (string), user uuid
+		2. auth_type: optional, (int/string/array), authority in the team (0: banned; 1: requested; 2: leader; 3: teammate; default: all)
+		2. with_auth: optional, (int/string), (1: with authority in the result; default: none)
+		2. project_fetch: optional, (int/string), number of users in the list (default: all)
+		3. project_page: optional, (int/string), page number (default: 1)
+		return: array(project uuid list, auth: when with_auth is set to 1)
+
+	get_watched_list: 获取关注项目列表
+		1. user_uuid: (string), user uuid
+		2. watched_fetch: optional, (int/string), number of users in the list (default: all)
+		3. watched_page: optional, (int/string), page number (default: 1)
+		return: array(uuid, watched project uuid list)
+
+	get_liked_list: 获取点赞项目列表
+		1. user_uuid: (string), user uuid
+		2. liked_fetch: optional, (int/string), number of users in the list (default: all)
+		3. liked_page: optional, (int/string), page number (default: 1)
+		return: array(uuid, liked project uuid list)

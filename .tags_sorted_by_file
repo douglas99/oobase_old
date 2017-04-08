@@ -1,0 +1,542 @@
+XFF	Demo\cfg_fn.php	/^        $XFF = &$_SERVER['HTTP_X_FORWARDED_FOR'];$/;"	v
+XFF	Demo\cfg_fn.php	/^        $XFF = getenv('HTTP_X_FORWARDED_FOR');$/;"	v
+_GET	Demo\cfg_fn.php	/^    if (isset($_GET) && !empty($_GET)) $_GET = escape_requests($_GET);$/;"	v
+_POST	Demo\cfg_fn.php	/^    if (isset($_POST) && !empty($_POST)) $_POST = escape_requests($_POST);$/;"	v
+_REQUEST	Demo\cfg_fn.php	/^    if (isset($_REQUEST) && !empty($_REQUEST)) $_REQUEST = escape_requests($_REQUEST);$/;"	v
+char	Demo\cfg_fn.php	/^    $char = strtr($uuid, ['A' => '0', 'B' => '1', 'C' => '2', 'D' => '3', 'E' => '4', 'F' => '5', '-' => '6']);$/;"	v
+class	Demo\cfg_fn.php	/^    $class = load_lib($module, $library);$/;"	v
+client_agent	Demo\cfg_fn.php	/^    $client_agent = $_SERVER['HTTP_USER_AGENT'] ?? '';$/;"	v
+client_info	Demo\cfg_fn.php	/^    $client_info = ['ip' => &$client_ip, 'lang' => &$client_lang, 'agent' => &$client_agent];$/;"	v
+client_ip	Demo\cfg_fn.php	/^        $client_ip = false !== $client_pos ? substr($XFF, 0, $client_pos) : $XFF;$/;"	v
+client_ip	Demo\cfg_fn.php	/^    else $client_ip = '0.0.0.0';$/;"	v
+client_ip	Demo\cfg_fn.php	/^    elseif (false !== getenv('LOCAL_ADDR')) $client_ip = getenv('LOCAL_ADDR');$/;"	v
+client_ip	Demo\cfg_fn.php	/^    elseif (false !== getenv('REMOTE_ADDR')) $client_ip = getenv('REMOTE_ADDR');$/;"	v
+client_ip	Demo\cfg_fn.php	/^    elseif (isset($_SERVER['LOCAL_ADDR'])) $client_ip = $_SERVER['LOCAL_ADDR'];$/;"	v
+client_ip	Demo\cfg_fn.php	/^    elseif (isset($_SERVER['REMOTE_ADDR'])) $client_ip = $_SERVER['REMOTE_ADDR'];$/;"	v
+client_ip	Demo\cfg_fn.php	/^    } elseif (false !== getenv('HTTP_CLIENT_IP')) $client_ip = getenv('HTTP_CLIENT_IP');$/;"	v
+client_ip	Demo\cfg_fn.php	/^    } elseif (isset($_SERVER['HTTP_CLIENT_IP'])) $client_ip = $_SERVER['HTTP_CLIENT_IP'];$/;"	v
+client_lang	Demo\cfg_fn.php	/^    $client_lang = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 5) : '';$/;"	v
+client_pos	Demo\cfg_fn.php	/^        $client_pos = strpos($XFF, ', ');$/;"	v
+code	Demo\cfg_fn.php	/^    $code = hash('sha1', $string . ':UUID');$/;"	v
+curl	Demo\cfg_fn.php	/^        $curl = curl_init($url);$/;"	v
+curl_request	Demo\cfg_fn.php	/^function curl_request(string $url, array $data = [], string $access_key = ''): string$/;"	f
+data	Demo\cfg_fn.php	/^function curl_request(string $url, array $data = [], string $access_key = ''): string$/;"	v
+escape_request	Demo\cfg_fn.php	/^function escape_request()$/;"	f
+escape_requests	Demo\cfg_fn.php	/^function escape_requests(array $requests): array$/;"	f
+file	Demo\cfg_fn.php	/^    \/\/Load the class file$/;"	c
+get_char	Demo\cfg_fn.php	/^function get_char(string $uuid, int $len = 1): string$/;"	f
+get_client_info	Demo\cfg_fn.php	/^function get_client_info(): array$/;"	f
+get_url_parts	Demo\cfg_fn.php	/^function get_url_parts(string $url): array$/;"	f
+get_uuid	Demo\cfg_fn.php	/^function get_uuid(string $string = ''): string$/;"	f
+key	Demo\cfg_fn.php	/^    foreach ($requests as $key => $value) $requests[$key] = !is_array($value) ? urlencode($value) : escape_requests($value);$/;"	v
+len	Demo\cfg_fn.php	/^function get_char(string $uuid, int $len = 1): string$/;"	v
+library	Demo\cfg_fn.php	/^        else $library = '';$/;"	v
+library_file	Demo\cfg_fn.php	/^        $library_file = ROOT . '\/' . $module . '\/_include\/' . $library . '.php';$/;"	v
+load_api	Demo\cfg_fn.php	/^function load_api(string $module, string $library, string $method): array$/;"	f
+load_lib	Demo\cfg_fn.php	/^function load_lib(string $module, string $library): string$/;"	f
+mailer	Demo\cfg_fn.php	/^    $mailer = new sys_mailer();$/;"	v
+method	Demo\cfg_fn.php	/^        $method = !empty($data) ? 'POST' : 'GET';$/;"	v
+methods_api	Demo\cfg_fn.php	/^        $methods_api = isset($class::$api) && is_array($class::$api) && !empty($class::$api) ? $class::$api : [];$/;"	v
+name	Demo\cfg_fn.php	/^ * @return string library file name, should be the same as the class name$/;"	c
+reflect	Demo\cfg_fn.php	/^            $reflect = new ReflectionMethod($class, $method);$/;"	v
+request	Demo\cfg_fn.php	/^        $request = [];$/;"	v
+response	Demo\cfg_fn.php	/^        $response = curl_exec($curl);$/;"	v
+response	Demo\cfg_fn.php	/^    } else $response = '';$/;"	v
+result	Demo\cfg_fn.php	/^    $result = $mailer->send();$/;"	v
+result	Demo\cfg_fn.php	/^    $result = [];$/;"	v
+send_email	Demo\cfg_fn.php	/^function send_email(string $address, string $title, string $content, string $sender): bool$/;"	f
+string	Demo\cfg_fn.php	/^    elseif (1 === preg_match('\/[A-Z]\/', $string)) $string = mb_strtolower($string, 'UTF-8');$/;"	v
+string	Demo\cfg_fn.php	/^    if ('' === $string) $string = uniqid(mt_rand(), true);$/;"	v
+string	Demo\cfg_fn.php	/^function get_uuid(string $string = ''): string$/;"	v
+url_parts	Demo\cfg_fn.php	/^    $url_parts = get_url_parts($url);$/;"	v
+url_parts	Demo\cfg_fn.php	/^    $url_parts = parse_url($url);$/;"	v
+url_parts	Demo\cfg_fn.php	/^    } else $url_parts = [];$/;"	v
+user_agent	Demo\cfg_fn.php	/^        $user_agent = 'Mozilla\/5.0 (Compatible; ooBase Data API 1.0.0; Permission Granted by ooBase Data Center)';$/;"	v
+uuid	Demo\cfg_fn.php	/^    $uuid = strtoupper($uuid);$/;"	v
+uuid	Demo\cfg_fn.php	/^    $uuid = substr($code, 0, 8);$/;"	v
+uuid	Demo\cfg_fn.php	/^    $uuid = substr($uuid, 0, $len);$/;"	v
+AJAX	Demo\core.js	/^function AJAX(object) {$/;"	f
+API	Demo\core.js	/^var API = '\/core\/api.php';$/;"	v
+FILE	Demo\core.js	/^var FILE = 'https:\/\/file.oobase.com\/';$/;"	v
+HOST	Demo\core.js	/^var HOST = 'dev.oobase.com';$/;"	v
+HttpRequest.onreadystatechange	Demo\core.js	/^        HttpRequest.onreadystatechange = function () {$/;"	f
+IEAgent	Demo\core.js	/^var IEAgent = \/(msie) ([\\w.]+)\/.exec(navigator.userAgent.toLowerCase());$/;"	v
+TimeToDate	Demo\core.js	/^function TimeToDate(Timestamp, hasTime, hasSec) {$/;"	f
+getCookie	Demo\core.js	/^function getCookie(Name) {$/;"	f
+keep_alive	Demo\core.js	/^function keep_alive() {$/;"	f
+notice_close.onclick	Demo\core.js	/^    notice_close.onclick = function () {$/;"	f
+popup_top	Demo\core.js	/^function popup_top(msg) {$/;"	f
+saveAs	Demo\core.js	/^function saveAs(Name, Value, Type) {$/;"	f
+setCookie	Demo\core.js	/^function setCookie(Name, Value, ExpireDays) {$/;"	f
+set_lang	Demo\core.js	/^function set_lang() {$/;"	f
+access_key	Demo\demo.php	/^$access_key = 'NDY5NTQwNjA4NTQ0NjIxNjI2OTQ0NDE1MTE3NTAzNjE1NTMxNzM2NDIxMzY2NDgyMTAyMjM2NjE4NDc1ODA4MQ==-rTWiZWhhQuhVvf7NIjavPzI5NIuWvDXB0Zv2kK8ipDly7edCab4B5pC+5kEv9Yde8Q\/mCBTSbaAz8lxJIiUfWvHu6Z1n39WyyZ93jh2WoSSjSnjlaqgIH1MQvd8YdCCgzkxEI6iDzx3dkhsnfovcRuMsX98qAskaeNrALrUtr4cvmiZkPWNSFUTOqVNfrLDgdAzRbWoVslRzgqG30qM6+LbWGcYIRD3oz2+UDEkEry9s3ckwrI5FMu32nT5y8\/rJ\/6D4hnP+bPgHjD1MJeUMVsv1aTkN2jc\/xeshetF\/sI6fGZ\/X';$/;"	v
+request	Demo\demo.php	/^$request = curl_request('http:\/\/dev.oobase.com\/core\/api.php', [$/;"	v
+lang_common	_html\header.php	/^$lang_common = \\ctrl_language::get_text($lang_keys);$/;"	v
+lang_keys	_html\header.php	/^$lang_keys = [$/;"	v
+result	api.php	/^    $result = \\ctrl_cli::start();$/;"	v
+script	api.php	/^\/\/Load CFG file (basic function script is loaded in the cfg file as also).$/;"	f
+auth_code	core\_image\auth_code.php	/^$auth_code = (string) eval('return ' . implode($codes) . ';');$/;"	v
+codes	core\_image\auth_code.php	/^$codes   = [];$/;"	v
+color	core\_image\auth_code.php	/^    $color = imagecolorallocate($image, mt_rand(0, 200), mt_rand(0, 200), mt_rand(0, 200));$/;"	v
+color_index	core\_image\auth_code.php	/^$color_index = count($colors) - 1;$/;"	v
+colors	core\_image\auth_code.php	/^$colors = [];$/;"	v
+db_redis	core\_image\auth_code.php	/^$db_redis            = \\db_redis::connect();$/;"	v
+font	core\_image\auth_code.php	/^$font         = 'georgiab.ttf';$/;"	v
+font_size	core\_image\auth_code.php	/^$font_size    = 36;$/;"	v
+height	core\_image\auth_code.php	/^$height       = 66;$/;"	v
+image	core\_image\auth_code.php	/^$image = imagecreate($width, $height);$/;"	v
+left_padding	core\_image\auth_code.php	/^$left_padding = 16;$/;"	v
+operator	core\_image\auth_code.php	/^$operator = ['+', '*'];$/;"	v
+width	core\_image\auth_code.php	/^$width        = 240;$/;"	v
+CLI_EXEC_PATH	core\_include\cfg.php	/^define('CLI_EXEC_PATH', 'D:\/phphuanjing\/PHP7.1\/php.exe'); \/\/PHP executable binary path PHP可执行二进制路径$/;"	d
+CLI_LOG_PATH	core\_include\cfg.php	/^define('CLI_LOG_PATH', ROOT . '\/_cli\/_log\/'); \/\/Log path 日志路径$/;"	d
+CLI_LONG_OPTIONS	core\_include\cfg.php	/^define('CLI_LONG_OPTIONS', ['cmd:', 'map:', 'data:', 'get:', 'try:', 'wait:', 'path:', 'log']); \/\/Long options (Preferred) 长选项（首选项）$/;"	d
+CLI_RUN_OPTIONS	core\_include\cfg.php	/^define('CLI_RUN_OPTIONS', 'c:m:d:g:t:w:p:l'); \/\/Short options (Equal to Long Options)$/;"	d
+CLI_WORK_PATH	core\_include\cfg.php	/^define('CLI_WORK_PATH', ROOT . '\/_cli\/_temp\/'); \/\/Working path 工作路径$/;"	d
+CRYPT_PATH	core\_include\cfg.php	/^define('CRYPT_PATH', 'core');$/;"	d
+ENABLE_GET	core\_include\cfg.php	/^define('ENABLE_GET', false);$/;"	d
+ERROR_LANG	core\_include\cfg.php	/^define('ERROR_LANG', true);$/;"	d
+FILE_DOMAIN	core\_include\cfg.php	/^define('FILE_DOMAIN', 'https:\/\/file.oobase.com\/');$/;"	d
+FILE_PATH	core\_include\cfg.php	/^define('FILE_PATH', 'D:\/Sites\/Files\/');$/;"	d
+LANGUAGE_LIST	core\_include\cfg.php	/^define('LANGUAGE_LIST', ['en-US', 'zh-CN']);$/;"	d
+MySQL_CHARSET	core\_include\cfg.php	/^define('MySQL_CHARSET', 'utf8mb4');$/;"	d
+MySQL_DB	core\_include\cfg.php	/^define('MySQL_DB', 'DB_NAME');$/;"	d
+MySQL_HOST	core\_include\cfg.php	/^define('MySQL_HOST', '127.0.0.1');$/;"	d
+MySQL_PERSISTENT	core\_include\cfg.php	/^define('MySQL_PERSISTENT', true);$/;"	d
+MySQL_PORT	core\_include\cfg.php	/^define('MySQL_PORT', 3306);$/;"	d
+MySQL_PWD	core\_include\cfg.php	/^define('MySQL_PWD', '11111');$/;"	d
+MySQL_USER	core\_include\cfg.php	/^define('MySQL_USER', 'root');$/;"	d
+ONLINE_TAGS	core\_include\cfg.php	/^define('ONLINE_TAGS', ['uuid', 'char']);$/;"	d
+ROOT	core\_include\cfg.php	/^define('ROOT', substr(__DIR__, 0, -14));$/;"	d
+Redis_AUTH	core\_include\cfg.php	/^define('Redis_AUTH', '');$/;"	d
+Redis_DB	core\_include\cfg.php	/^define('Redis_DB', 0);$/;"	d
+Redis_HOST	core\_include\cfg.php	/^define('Redis_HOST', '127.0.0.1');$/;"	d
+Redis_PERSISTENT	core\_include\cfg.php	/^define('Redis_PERSISTENT', true);$/;"	d
+Redis_PORT	core\_include\cfg.php	/^define('Redis_PORT', 6379);$/;"	d
+Redis_SESSION	core\_include\cfg.php	/^define('Redis_SESSION', true);$/;"	d
+SECURE_API	core\_include\cfg.php	/^define('SECURE_API', true);$/;"	d
+SMTP_HOST	core\_include\cfg.php	/^define('SMTP_HOST', 'SMTP_HOST');$/;"	d
+SMTP_PORT	core\_include\cfg.php	/^define('SMTP_PORT', 465);$/;"	d
+SMTP_PWD	core\_include\cfg.php	/^define('SMTP_PWD', 'SMTP_PWD');$/;"	d
+SMTP_SENDER	core\_include\cfg.php	/^define('SMTP_SENDER', 'SMTP_SENDER');$/;"	d
+SMTP_USER	core\_include\cfg.php	/^define('SMTP_USER', 'SMTP_USER');$/;"	d
+script	core\_include\cfg.php	/^\/\/Load basic function script$/;"	f
+XFF	core\_include\cfg_fn.php	/^        $XFF = &$_SERVER['HTTP_X_FORWARDED_FOR'];$/;"	v
+XFF	core\_include\cfg_fn.php	/^        $XFF = getenv('HTTP_X_FORWARDED_FOR');$/;"	v
+_GET	core\_include\cfg_fn.php	/^    if (isset($_GET) && !empty($_GET)) $_GET = escape_requests($_GET);$/;"	v
+_POST	core\_include\cfg_fn.php	/^    if (isset($_POST) && !empty($_POST)) $_POST = escape_requests($_POST);$/;"	v
+_REQUEST	core\_include\cfg_fn.php	/^    if (isset($_REQUEST) && !empty($_REQUEST)) $_REQUEST = escape_requests($_REQUEST);$/;"	v
+api_list	core\_include\cfg_fn.php	/^        $api_list = SECURE_API && isset($class::$api) && is_array($class::$api) ? array_keys($class::$api) : [];$/;"	v
+char	core\_include\cfg_fn.php	/^    $char = strtr($uuid, ['A' => '0', 'B' => '1', 'C' => '2', 'D' => '3', 'E' => '4', 'F' => '5', '-' => '6']);$/;"	v
+class	core\_include\cfg_fn.php	/^    $class = load_lib($module, $library);$/;"	v
+client_agent	core\_include\cfg_fn.php	/^    $client_agent = $_SERVER['HTTP_USER_AGENT'] ?? '';$/;"	v
+client_info	core\_include\cfg_fn.php	/^    $client_info = ['ip' => &$client_ip, 'lang' => &$client_lang, 'agent' => &$client_agent];$/;"	v
+client_ip	core\_include\cfg_fn.php	/^        $client_ip = false !== $client_pos ? substr($XFF, 0, $client_pos) : $XFF;$/;"	v
+client_ip	core\_include\cfg_fn.php	/^    else $client_ip = '0.0.0.0';$/;"	v
+client_ip	core\_include\cfg_fn.php	/^    elseif (false !== getenv('LOCAL_ADDR')) $client_ip = getenv('LOCAL_ADDR');$/;"	v
+client_ip	core\_include\cfg_fn.php	/^    elseif (false !== getenv('REMOTE_ADDR')) $client_ip = getenv('REMOTE_ADDR');$/;"	v
+client_ip	core\_include\cfg_fn.php	/^    elseif (isset($_SERVER['LOCAL_ADDR'])) $client_ip = $_SERVER['LOCAL_ADDR'];$/;"	v
+client_ip	core\_include\cfg_fn.php	/^    elseif (isset($_SERVER['REMOTE_ADDR'])) $client_ip = $_SERVER['REMOTE_ADDR'];$/;"	v
+client_ip	core\_include\cfg_fn.php	/^    } elseif (false !== getenv('HTTP_CLIENT_IP')) $client_ip = getenv('HTTP_CLIENT_IP');$/;"	v
+client_ip	core\_include\cfg_fn.php	/^    } elseif (isset($_SERVER['HTTP_CLIENT_IP'])) $client_ip = $_SERVER['HTTP_CLIENT_IP'];$/;"	v
+client_lang	core\_include\cfg_fn.php	/^    $client_lang = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 5) : '';$/;"	v
+client_pos	core\_include\cfg_fn.php	/^        $client_pos = strpos($XFF, ', ');$/;"	v
+code	core\_include\cfg_fn.php	/^    $code = hash('sha1', $string . ':UUID');$/;"	v
+curl	core\_include\cfg_fn.php	/^        $curl = curl_init($url);$/;"	v
+curl_request	core\_include\cfg_fn.php	/^function curl_request(string $url, array $data = [], string $access_key = ''): string$/;"	f
+data	core\_include\cfg_fn.php	/^function curl_request(string $url, array $data = [], string $access_key = ''): string$/;"	v
+escape_request	core\_include\cfg_fn.php	/^function escape_request()$/;"	f
+escape_requests	core\_include\cfg_fn.php	/^function escape_requests(array $requests): array$/;"	f
+get_char	core\_include\cfg_fn.php	/^function get_char(string $uuid, int $len = 1): string$/;"	f
+get_client_info	core\_include\cfg_fn.php	/^function get_client_info(): array$/;"	f
+get_uuid	core\_include\cfg_fn.php	/^function get_uuid(string $string = ''): string$/;"	f
+key	core\_include\cfg_fn.php	/^    foreach ($requests as $key => $value) $requests[$key] = !is_array($value) ? urlencode($value) : escape_requests($value);$/;"	v
+len	core\_include\cfg_fn.php	/^function get_char(string $uuid, int $len = 1): string$/;"	v
+library	core\_include\cfg_fn.php	/^            if (!class_exists($library, false)) $library = '';$/;"	v
+library	core\_include\cfg_fn.php	/^        } else $library = '';$/;"	v
+library_file	core\_include\cfg_fn.php	/^        $library_file = ROOT . '\/' . $module . '\/_include\/' . (false === $position ? $library : substr($library, $position)) . '.php';$/;"	v
+load_api	core\_include\cfg_fn.php	/^function load_api(string $module, string $library, string $method): array$/;"	f
+load_lib	core\_include\cfg_fn.php	/^function load_lib(string $module, string $library): string$/;"	f
+method	core\_include\cfg_fn.php	/^        $method = !empty($data) ? 'POST' : 'GET';$/;"	v
+method_list	core\_include\cfg_fn.php	/^        $method_list = get_class_methods($class);$/;"	v
+position	core\_include\cfg_fn.php	/^        $position = strrpos($library, '\\\\');$/;"	v
+reflect	core\_include\cfg_fn.php	/^            $reflect = new \\ReflectionMethod($class, $method);$/;"	v
+request	core\_include\cfg_fn.php	/^        $request = [];$/;"	v
+response	core\_include\cfg_fn.php	/^        $response = curl_exec($curl);$/;"	v
+response	core\_include\cfg_fn.php	/^    } else $response = '';$/;"	v
+result	core\_include\cfg_fn.php	/^    $result = [];$/;"	v
+sort_list	core\_include\cfg_fn.php	/^function sort_list(array $data, array $list): array$/;"	f
+string	core\_include\cfg_fn.php	/^    elseif (1 === preg_match('\/[A-Z]\/', $string)) $string = mb_strtolower($string, 'UTF-8');$/;"	v
+string	core\_include\cfg_fn.php	/^    if ('' === $string) $string = uniqid(mt_rand(), true);$/;"	v
+string	core\_include\cfg_fn.php	/^function get_uuid(string $string = ''): string$/;"	v
+url_parts	core\_include\cfg_fn.php	/^    $url_parts = parse_url($url);$/;"	v
+user_agent	core\_include\cfg_fn.php	/^        $user_agent = 'Mozilla\/5.0 (Compatible; NervSys Data API 1.0.0; Permission Granted by NervSys Data Center)';$/;"	v
+uuid	core\_include\cfg_fn.php	/^    $uuid = strtoupper($uuid);$/;"	v
+uuid	core\_include\cfg_fn.php	/^    $uuid = substr($code, 0, 8);$/;"	v
+uuid	core\_include\cfg_fn.php	/^    $uuid = substr($uuid, 0, $len);$/;"	v
+build_cmd	core\_include\ctrl_cli.php	/^    private static function build_cmd()$/;"	f
+build_var	core\_include\ctrl_cli.php	/^    private static function build_var()$/;"	f
+call_api	core\_include\ctrl_cli.php	/^    private static function call_api(): array$/;"	f
+cli_cfg	core\_include\ctrl_cli.php	/^    private static $cli_cfg = []; \/\/CLI Configurations CLI 配置$/;"	v
+cli_cmd	core\_include\ctrl_cli.php	/^    private static $cli_cmd = ''; \/\/CLI Command CLI命令$/;"	v
+ctrl_cli	core\_include\ctrl_cli.php	/^class ctrl_cli$/;"	c
+data	core\_include\ctrl_cli.php	/^                $data = json_decode($json, true);$/;"	v
+data	core\_include\ctrl_cli.php	/^        $data = \\data_pool::$pool;$/;"	v
+get_stream	core\_include\ctrl_cli.php	/^    private static function get_stream(array $stream): string$/;"	f
+json	core\_include\ctrl_cli.php	/^            $json = \\ctrl_file::get_content(self::$opt_path);$/;"	v
+k	core\_include\ctrl_cli.php	/^                foreach (self::$var as $k => $v) {$/;"	v
+key	core\_include\ctrl_cli.php	/^        foreach ($logs as $key => $value) {$/;"	v
+load_cfg	core\_include\ctrl_cli.php	/^    private static function load_cfg()$/;"	f
+load_opt	core\_include\ctrl_cli.php	/^    private static function load_opt()$/;"	f
+logs	core\_include\ctrl_cli.php	/^            $logs           = ['cmd' => self::$opt_cmd];$/;"	v
+logs	core\_include\ctrl_cli.php	/^        $logs = array_merge(['time' => date('Y-m-d H:i:s', time())], $data);$/;"	v
+opt	core\_include\ctrl_cli.php	/^    public static $opt = [];$/;"	v
+opt_cmd	core\_include\ctrl_cli.php	/^    private static $opt_cmd = ''; \/\/Option for Internal Mode 内部模式选项$/;"	v
+opt_data	core\_include\ctrl_cli.php	/^    private static $opt_data = ''; \/\/Request data, will try to read STDIN when empty$/;"	v
+opt_get	core\_include\ctrl_cli.php	/^    private static $opt_get = ''; \/\/Result (Valid values: "cmd", "data", "error", "result" or "cmd", "map", "data", "result"; empty: no returns)$/;"	v
+opt_log	core\_include\ctrl_cli.php	/^    private static $opt_log = false; \/\/Log setting, set to true to log all ("time", "cmd", "data", "error", "result" or "time", "cmd", "map", "data", "result")$/;"	v
+opt_map	core\_include\ctrl_cli.php	/^    private static $opt_map = ''; \/\/Option for Internal Mode 内部模式选项$/;"	v
+opt_path	core\_include\ctrl_cli.php	/^    private static $opt_path = ROOT . '\/_cli\/cfg.json'; \/\/Default CFG file path 默认CFG文件路径$/;"	v
+opt_try	core\_include\ctrl_cli.php	/^    private static $opt_try  = 100; \/\/Default try times for stream checking 流检查的默认尝试时间$/;"	v
+opt_wait	core\_include\ctrl_cli.php	/^    private static $opt_wait = 2; \/\/Default time wait for stream checking (in microseconds) 默认时间等待流检查（以微秒为单位）$/;"	v
+process	core\_include\ctrl_cli.php	/^            $process = proc_open(self::$cli_cmd, [['pipe', 'r'], ['pipe', 'w'], ['pipe', 'w']], $pipes, CLI_WORK_PATH);$/;"	v
+resource	core\_include\ctrl_cli.php	/^        $resource = current($stream);$/;"	v
+result	core\_include\ctrl_cli.php	/^                $result = $logs = [];$/;"	v
+result	core\_include\ctrl_cli.php	/^                $result = ['error' => 'Process ERROR!'];$/;"	v
+result	core\_include\ctrl_cli.php	/^                $result = trim(stream_get_contents($resource));$/;"	v
+result	core\_include\ctrl_cli.php	/^            $result = ['error' => 'Command ERROR!'];$/;"	v
+result	core\_include\ctrl_cli.php	/^        $result = '';$/;"	v
+result	core\_include\ctrl_cli.php	/^        $result = [];$/;"	v
+run_exec	core\_include\ctrl_cli.php	/^    private static function run_exec(): array$/;"	f
+save_log	core\_include\ctrl_cli.php	/^    private static function save_log(array $data)$/;"	f
+start	core\_include\ctrl_cli.php	/^    public static function start(): array$/;"	f
+stat	core\_include\ctrl_cli.php	/^            $stat = fstat($resource);$/;"	v
+try	core\_include\ctrl_cli.php	/^        $try    = 0;$/;"	v
+var	core\_include\ctrl_cli.php	/^    public static $var = [];$/;"	v
+code	core\_include\ctrl_error.php	/^                            foreach ($error as $code => $msg) {$/;"	v
+code	core\_include\ctrl_error.php	/^                        foreach ($error as $code => $msg) {$/;"	v
+ctrl_error	core\_include\ctrl_error.php	/^class ctrl_error$/;"	c
+error	core\_include\ctrl_error.php	/^                $error = json_decode($json, true);$/;"	v
+error	core\_include\ctrl_error.php	/^            $error = json_decode($json, true);$/;"	v
+error_files	core\_include\ctrl_error.php	/^        $error_files = \\ctrl_file::get_list(ROOT, '\/_error\/*.json', true); \/\/Get all the json formatted error files from all modules 从所有模块获取所有的json格式的错误文件$/;"	v
+error_text	core\_include\ctrl_error.php	/^                                    $error_text                                   = gettext($msg);$/;"	v
+errors	core\_include\ctrl_error.php	/^        $errors = [];$/;"	v
+get_all_errors	core\_include\ctrl_error.php	/^    public static function get_all_errors(): array$/;"	f
+get_error	core\_include\ctrl_error.php	/^    public static function get_error(int $code): array$/;"	f
+json	core\_include\ctrl_error.php	/^            $json = \\ctrl_file::get_content($error_file);$/;"	v
+json	core\_include\ctrl_error.php	/^        $json = \\ctrl_file::get_content(ROOT . '\/' . $module . '\/_error\/' . $file . '.json');$/;"	v
+lang_files	core\_include\ctrl_error.php	/^                        $lang_files = false !== strpos($error['Lang'], ', ') ? explode(', ', $error['Lang']) : [$error['Lang']];$/;"	v
+load	core\_include\ctrl_error.php	/^    public static function load(string $module, string $file)$/;"	f
+pool	core\_include\ctrl_error.php	/^    private static $pool = [];$/;"	v
+append_content	core\_include\ctrl_file.php	/^    public static function append_content(string $file, string $data): int$/;"	f
+content	core\_include\ctrl_file.php	/^                    $content = file_get_contents($file);$/;"	v
+content	core\_include\ctrl_file.php	/^                $content = '';$/;"	v
+content	core\_include\ctrl_file.php	/^                $content = fread($handle, $file_size);$/;"	v
+content	core\_include\ctrl_file.php	/^            $content = '';$/;"	v
+ctrl_file	core\_include\ctrl_file.php	/^class ctrl_file$/;"	c
+dir_list	core\_include\ctrl_file.php	/^                $dir_list = glob($path . '*');$/;"	v
+ext	core\_include\ctrl_file.php	/^            $ext = strtolower($ext);$/;"	v
+ext	core\_include\ctrl_file.php	/^        $ext = pathinfo($path, PATHINFO_EXTENSION);$/;"	v
+file_path	core\_include\ctrl_file.php	/^        $file_path = is_readable($real_path) ? $path . '\/' : ':';$/;"	v
+file_size	core\_include\ctrl_file.php	/^            $file_size = filesize($file);$/;"	v
+get_content	core\_include\ctrl_file.php	/^    public static function get_content(string $file): string$/;"	f
+get_ext	core\_include\ctrl_file.php	/^    public static function get_ext(string $path): string$/;"	f
+get_list	core\_include\ctrl_file.php	/^    public static function get_list(string $path, string $pattern = '*', bool $recursive = false): array$/;"	f
+get_path	core\_include\ctrl_file.php	/^    public static function get_path(string $path): string$/;"	f
+handle	core\_include\ctrl_file.php	/^        $handle = fopen($file, 'ab');$/;"	v
+handle	core\_include\ctrl_file.php	/^        $handle = fopen($file, 'rb');$/;"	v
+handle	core\_include\ctrl_file.php	/^        $handle = fopen($file, 'wb');$/;"	v
+list	core\_include\ctrl_file.php	/^                        $list = array_merge($list, self::get_list($dir, $pattern, true));$/;"	v
+list	core\_include\ctrl_file.php	/^            $list = glob($path . $pattern);$/;"	v
+list	core\_include\ctrl_file.php	/^        $list = [];$/;"	v
+path	core\_include\ctrl_file.php	/^                $path = str_replace('..', '.', $path);$/;"	v
+path	core\_include\ctrl_file.php	/^                $path = str_replace('\\\\', '\/', $path);$/;"	v
+path	core\_include\ctrl_file.php	/^        $path = realpath($path);$/;"	v
+pattern	core\_include\ctrl_file.php	/^    public static function get_list(string $path, string $pattern = '*', bool $recursive = false): array$/;"	v
+put_content	core\_include\ctrl_file.php	/^    public static function put_content(string $file, string $data): int$/;"	f
+real_path	core\_include\ctrl_file.php	/^        $real_path = FILE_PATH;$/;"	v
+result	core\_include\ctrl_file.php	/^            $result = file_put_contents($file, $data);$/;"	v
+result	core\_include\ctrl_file.php	/^            $result = file_put_contents($file, $data, FILE_APPEND);$/;"	v
+result	core\_include\ctrl_file.php	/^        $result = false !== $handle ? fwrite($handle, $data) : false;$/;"	v
+ctrl_language	core\_include\ctrl_language.php	/^class ctrl_language$/;"	c
+data	core\_include\ctrl_language.php	/^        $data = [];$/;"	v
+get_text	core\_include\ctrl_language.php	/^    public static function get_text(array $keys): array$/;"	f
+lang	core\_include\ctrl_language.php	/^            $lang = &$_COOKIE['lang'];$/;"	v
+lang	core\_include\ctrl_language.php	/^            $lang = &$_GET['lang'];$/;"	v
+lang	core\_include\ctrl_language.php	/^            $lang = 'en-US';$/;"	v
+lang	core\_include\ctrl_language.php	/^            $lang = 'zh' === substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) ? 'zh-CN' : 'en-US';$/;"	v
+lang	core\_include\ctrl_language.php	/^    public static $lang = 'en-US';$/;"	v
+load	core\_include\ctrl_language.php	/^    public static function load(string $module = '', string $file)$/;"	f
+module	core\_include\ctrl_language.php	/^    public static function load(string $module = '', string $file)$/;"	v
+path	core\_include\ctrl_language.php	/^        $path = '' === $module || '\/' === $module ? ROOT . '\/_language\/' : ROOT . '\/' . $module . '\/_language\/';$/;"	v
+ctrl_session	core\_include\ctrl_session.php	/^class ctrl_session$/;"	c
+session_close	core\_include\ctrl_session.php	/^    public static function session_close(): bool$/;"	f
+session_destroy	core\_include\ctrl_session.php	/^    public static function session_destroy(string $session_id): bool$/;"	f
+session_gc	core\_include\ctrl_session.php	/^    public static function session_gc(int $gc_lifetime): bool$/;"	f
+session_open	core\_include\ctrl_session.php	/^    public static function session_open(string $session_path, string $session_name): bool$/;"	f
+session_read	core\_include\ctrl_session.php	/^    public static function session_read(string $session_id): string$/;"	f
+session_write	core\_include\ctrl_session.php	/^    public static function session_write(string $session_id, string $session_data): bool$/;"	f
+start	core\_include\ctrl_session.php	/^    public static function start()$/;"	f
+base64	core\_include\ctrl_upload.php	/^    public static $base64 = ''; \/\/BASE64 content$/;"	v
+base64_pos	core\_include\ctrl_upload.php	/^        $base64_pos = strpos(self::$base64, 'base64,'); \/\/Get the position$/;"	v
+chk_ext	core\_include\ctrl_upload.php	/^    private static function chk_ext(string $file_name): string$/;"	f
+chk_size	core\_include\ctrl_upload.php	/^    private static function chk_size(int $file_size): int$/;"	f
+crop	core\_include\ctrl_upload.php	/^    public static function image_resize(string $file, int $width, int $height, bool $crop = false)$/;"	v
+crop_h	core\_include\ctrl_upload.php	/^                $crop_h = (int) ($img_height - $img_width \/ $ratio_need);$/;"	v
+crop_w	core\_include\ctrl_upload.php	/^                $crop_w = (int) ($img_width - $img_height * $ratio_need);$/;"	v
+ctrl_upload	core\_include\ctrl_upload.php	/^class ctrl_upload$/;"	c
+data	core\_include\ctrl_upload.php	/^            $data     = substr(self::$base64, $base64_pos + 7); \/\/Get the base64 data of the image 获取图像的base64数据$/;"	v
+ext	core\_include\ctrl_upload.php	/^            $ext = '';$/;"	v
+ext	core\_include\ctrl_upload.php	/^        $ext = \\ctrl_file::get_ext($file_name);$/;"	v
+file	core\_include\ctrl_upload.php	/^    public static $file = []; \/\/$_FILES['file']$/;"	v
+file_ext	core\_include\ctrl_upload.php	/^                        $file_ext  = self::img_ext[$img_info[2]]; \/\/Get the extension 获取扩展名$/;"	v
+file_ext	core\_include\ctrl_upload.php	/^                    $file_ext = self::chk_ext(self::$file['name']); \/\/Check the file extension$/;"	v
+file_ext	core\_include\ctrl_upload.php	/^    public static $file_ext = []; \/\/Allowed extensions 允许的扩展$/;"	v
+file_name	core\_include\ctrl_upload.php	/^                            $file_name = '' !== self::$file_name ? self::$file_name : hash('md5', uniqid(mt_rand(), true)); \/\/Get the file name 获取文件名$/;"	v
+file_name	core\_include\ctrl_upload.php	/^                            $file_name = '' !== self::$file_name ? self::$file_name : hash('md5', uniqid(mt_rand(), true)); \/\/Get the file name$/;"	v
+file_name	core\_include\ctrl_upload.php	/^    public static $file_name = ''; \/\/File name without extension 文件名不带扩展名$/;"	v
+file_path	core\_include\ctrl_upload.php	/^                            $file_path = FILE_PATH . $url_path; \/\/Get real upload path 获取真正的上传路径$/;"	v
+file_path	core\_include\ctrl_upload.php	/^        $file_path = FILE_PATH . $url_path; \/\/Get real upload path$/;"	v
+file_size	core\_include\ctrl_upload.php	/^                $file_size = self::chk_size(self::$file['size']); \/\/Get the file size$/;"	v
+file_size	core\_include\ctrl_upload.php	/^                $file_size = self::chk_size(strlen($img_data)); \/\/Get the file size 获取文件大小$/;"	v
+file_size	core\_include\ctrl_upload.php	/^    public static $file_size = 20971520; \/\/Allowed File size: 20MB by default 允许文件大小：默认为20MB$/;"	v
+get_error	core\_include\ctrl_upload.php	/^    private static function get_error(int $error_code): array$/;"	f
+image_resize	core\_include\ctrl_upload.php	/^    public static function image_resize(string $file, int $width, int $height, bool $crop = false)$/;"	f
+img_create	core\_include\ctrl_upload.php	/^                $img_create = 'imagecreatefrom' . $type;$/;"	v
+img_data	core\_include\ctrl_upload.php	/^            $img_data = base64_decode($data); \/\/Get the binary data of the image 获取图像的二进制数据$/;"	v
+img_data	core\_include\ctrl_upload.php	/^        $img_data = ['img_x' => &$img_x, 'img_y' => &$img_y, 'img_w' => &$need_width, 'img_h' => &$need_height, 'src_w' => &$src_w, 'src_h' => &$src_h];$/;"	v
+img_data	core\_include\ctrl_upload.php	/^        $img_data = ['img_x' => 0, 'img_y' => 0, 'img_w' => &$img_width, 'img_h' => &$img_height, 'src_w' => &$src_w, 'src_h' => &$src_h];$/;"	v
+img_func	core\_include\ctrl_upload.php	/^                $img_func   = 'image' . $type;$/;"	v
+img_height	core\_include\ctrl_upload.php	/^                $img_height = &$need_height;$/;"	v
+img_height	core\_include\ctrl_upload.php	/^                $img_height = (int) ($need_width \/ $ratio_img);$/;"	v
+img_height	core\_include\ctrl_upload.php	/^            $img_height = &$need_height;$/;"	v
+img_info	core\_include\ctrl_upload.php	/^                    $img_info = getimagesizefromstring($img_data); \/\/Get the image information 获取图像信息$/;"	v
+img_info	core\_include\ctrl_upload.php	/^        $img_info = getimagesize($file);$/;"	v
+img_size	core\_include\ctrl_upload.php	/^            $img_size = $crop ? self::new_img_crop($img_info[0], $img_info[1], $width, $height) : self::new_img_size($img_info[0], $img_info[1], $width, $height);$/;"	v
+img_source	core\_include\ctrl_upload.php	/^                $img_source = $img_create($file);$/;"	v
+img_thumb	core\_include\ctrl_upload.php	/^                $img_thumb  = imagecreatetruecolor($img_size['img_w'], $img_size['img_h']);$/;"	v
+img_width	core\_include\ctrl_upload.php	/^                $img_width  = &$need_width;$/;"	v
+img_width	core\_include\ctrl_upload.php	/^                $img_width  = (int) ($need_height * $ratio_img);$/;"	v
+img_width	core\_include\ctrl_upload.php	/^            $img_width  = &$need_width;$/;"	v
+img_x	core\_include\ctrl_upload.php	/^                $img_x  = (int) ($crop_w \/ 2);$/;"	v
+img_x	core\_include\ctrl_upload.php	/^        $img_x = $img_y = 0;$/;"	v
+img_y	core\_include\ctrl_upload.php	/^                $img_y  = (int) ($crop_h \/ 2);$/;"	v
+move	core\_include\ctrl_upload.php	/^            $move = copy($file, $file_path); \/\/Failed to move, copy it 无法移动，复制$/;"	v
+move	core\_include\ctrl_upload.php	/^        $move = move_uploaded_file($file, $file_path); \/\/Move the tmp file to the right path 将tmp文件移动到正确的路径$/;"	v
+new_img_crop	core\_include\ctrl_upload.php	/^    private static function new_img_crop(int $img_width, int $img_height, int $need_width, int $need_height): array$/;"	f
+new_img_size	core\_include\ctrl_upload.php	/^    private static function new_img_size(int $img_width, int $img_height, int $need_width, int $need_height): array$/;"	f
+ratio_diff	core\_include\ctrl_upload.php	/^            $ratio_diff = round($ratio_img - $ratio_need, 2);$/;"	v
+ratio_img	core\_include\ctrl_upload.php	/^            $ratio_img  = $img_width \/ $img_height;$/;"	v
+ratio_need	core\_include\ctrl_upload.php	/^            $ratio_need = $need_width \/ $need_height;$/;"	v
+result	core\_include\ctrl_upload.php	/^                                $result              = \\ctrl_error::get_error(10000); \/\/Upload finished 上传完成$/;"	v
+result	core\_include\ctrl_upload.php	/^                                $result = \\ctrl_error::get_error(10001);$/;"	v
+result	core\_include\ctrl_upload.php	/^                            $result = \\ctrl_error::get_error(10002);$/;"	v
+result	core\_include\ctrl_upload.php	/^                        $result = \\ctrl_error::get_error(10003);$/;"	v
+result	core\_include\ctrl_upload.php	/^                    $result = \\ctrl_error::get_error(10004);$/;"	v
+result	core\_include\ctrl_upload.php	/^                $result = \\ctrl_error::get_error(10001);$/;"	v
+result	core\_include\ctrl_upload.php	/^                $result = \\ctrl_error::get_error(10004);$/;"	v
+result	core\_include\ctrl_upload.php	/^                $result = \\ctrl_error::get_error(10005);$/;"	v
+result	core\_include\ctrl_upload.php	/^                $result = \\ctrl_error::get_error(10006);$/;"	v
+result	core\_include\ctrl_upload.php	/^                $result = \\ctrl_error::get_error(10007);$/;"	v
+result	core\_include\ctrl_upload.php	/^                $result = \\ctrl_error::get_error(10008);$/;"	v
+result	core\_include\ctrl_upload.php	/^                $result = self::get_error(self::$file['error']);$/;"	v
+result	core\_include\ctrl_upload.php	/^            $result = \\ctrl_error::get_error(10003);$/;"	v
+result	core\_include\ctrl_upload.php	/^            $result = \\ctrl_error::get_error(10007);$/;"	v
+save_file	core\_include\ctrl_upload.php	/^                            $save_file = \\ctrl_file::put_content($file_path, $img_data); \/\/Write to file 写入文件$/;"	v
+save_file	core\_include\ctrl_upload.php	/^    private static function save_file(string $file, string $save_path, string $file_name, string $file_ext): string$/;"	f
+save_path	core\_include\ctrl_upload.php	/^                        $save_path = \\ctrl_file::get_path(self::$save_path); \/\/Get the upload path 获取上传路径$/;"	v
+save_path	core\_include\ctrl_upload.php	/^                        $save_path = \\ctrl_file::get_path(self::$save_path); \/\/Get the upload path$/;"	v
+save_path	core\_include\ctrl_upload.php	/^    public static $save_path = ''; \/\/Upload path 上传路径$/;"	v
+src_h	core\_include\ctrl_upload.php	/^                $src_h  = $img_height - $img_y * 2;$/;"	v
+src_h	core\_include\ctrl_upload.php	/^        $src_h = $img_height;$/;"	v
+src_w	core\_include\ctrl_upload.php	/^                $src_w  = $img_width - $crop_w;$/;"	v
+src_w	core\_include\ctrl_upload.php	/^        $src_w = $img_width;$/;"	v
+transparent	core\_include\ctrl_upload.php	/^                        $transparent = imagecolorallocate($img_thumb, 0, 0, 0);$/;"	v
+transparent	core\_include\ctrl_upload.php	/^                        $transparent = imagecolorallocatealpha($img_thumb, 0, 0, 0, 127);$/;"	v
+type	core\_include\ctrl_upload.php	/^                $type       = self::img_type[$img_info[2]];$/;"	v
+upload_base64	core\_include\ctrl_upload.php	/^    public static function upload_base64(): array$/;"	f
+upload_file	core\_include\ctrl_upload.php	/^    public static function upload_file(): array$/;"	f
+url	core\_include\ctrl_upload.php	/^                            $url       = self::save_file(self::$file['tmp_name'], $save_path, $file_name, $file_ext); \/\/Save file$/;"	v
+url_path	core\_include\ctrl_upload.php	/^                            $url_path  = $save_path . $file_name . '.' . $file_ext; \/\/Get URL path 获取URL路径$/;"	v
+url_path	core\_include\ctrl_upload.php	/^                $url_path = '';$/;"	v
+url_path	core\_include\ctrl_upload.php	/^        $url_path  = $save_path . $file_name . '.' . $file_ext; \/\/Get URL path$/;"	v
+Origin_HOST	core\_include\data_key.php	/^        $Origin_HOST = $_SERVER['HTTP_ORIGIN'] ?? $Server_HOST;$/;"	v
+Server_HOST	core\_include\data_key.php	/^                        self::$client = $Server_HOST === $_SERVER['HTTP_ORIGIN'] ? self::chk_cookie() : 'REMOTE';$/;"	v
+Server_HOST	core\_include\data_key.php	/^                        self::$client = false !== $referer && isset($referer['scheme']) && isset($referer['host']) && $Server_HOST === $referer['scheme'] . ':\/\/' . $referer['host'] . (!isset($referer['port']) || 80 === $referer['port'] ? '' : ':' . $referer['port']) ? self::chk_cookie() : 'REMOTE';$/;"	v
+Server_HOST	core\_include\data_key.php	/^        $Server_HOST = isset($_SERVER['HTTPS']) && 'on' === $_SERVER['HTTPS'] ? 'https' : 'http' . ':\/\/' . $_SERVER['HTTP_HOST'];$/;"	v
+_SESSION	core\_include\data_key.php	/^                    $_SESSION = [];$/;"	v
+_SESSION	core\_include\data_key.php	/^                $_SESSION = [];$/;"	v
+add	core\_include\data_key.php	/^    public static function add(string $key, string $value, bool $is_int = false): string$/;"	f
+chk_cookie	core\_include\data_key.php	/^    private static function chk_cookie(): string$/;"	f
+chk_online	core\_include\data_key.php	/^    private static function chk_online(): bool$/;"	f
+client	core\_include\data_key.php	/^        $client       = isset($_COOKIE[$session_name]) && session_id() === $_COOKIE[$session_name] ? 'LOCAL' : 'REMOTE';$/;"	v
+client	core\_include\data_key.php	/^    public static $client = '';$/;"	v
+content	core\_include\data_key.php	/^        $content      = \\user_crypt::validate_key($_SERVER['HTTP_ACCESS_KEY']);$/;"	v
+data_key	core\_include\data_key.php	/^class data_key$/;"	c
+get_key	core\_include\data_key.php	/^    private static function get_key(): string$/;"	f
+is_int	core\_include\data_key.php	/^    public static function add(string $key, string $value, bool $is_int = false): string$/;"	v
+key	core\_include\data_key.php	/^    public static $key = ['NTg2NTgzMDMzMjI2ODI5MjIyMTQ3NTMxNDQyMTI2MzAwMzcxNTAxNTYxNTA3NDM2MTE0MDUwNjU3MDUzMzU1Mg==-uzxJpFFgX5z7EteIJt8y01+ZB6W59tT5h+WIjPl6n\/G4fYtkAoHjoHZgtv\/Um4W6dku1wxswZWvjoahLvNzWcno96ytlGbTkNfrnTRuOiPTgn15Xr269sc17ieCn7\/SM4P2ZuFpZNqeWA6XTu2WJm8JTWKsxoO8W0vIQiGMc5yDdAUpi1rYNPvaFlkO6dtmHKyOm8Y0Ay9+Nza\/clKsph04LQwvuSDM2MZYQ4n1g+ytwSB\/8AdpZUBnmnyst4rX1OZGB0IeosTfTv8AvXipMbPwxXB0l0xlegzyrpVk557Y5RLpl'];$/;"	v
+key	core\_include\data_key.php	/^    public static function remove(string $key = ''): string$/;"	v
+map_key	core\_include\data_key.php	/^    private static function map_key()$/;"	f
+map_sess	core\_include\data_key.php	/^    private static function map_sess()$/;"	f
+online	core\_include\data_key.php	/^                $online = false;$/;"	v
+online	core\_include\data_key.php	/^        $online = true;$/;"	v
+online	core\_include\data_key.php	/^    public static $online = false;$/;"	v
+referer	core\_include\data_key.php	/^                        $referer      = parse_url($_SERVER['HTTP_REFERER']);$/;"	v
+remove	core\_include\data_key.php	/^    public static function remove(string $key = ''): string$/;"	f
+renew	core\_include\data_key.php	/^    public static function renew(int $ExpireAt): string$/;"	f
+session_name	core\_include\data_key.php	/^        $session_name = session_name();$/;"	v
+start	core\_include\data_key.php	/^    public static function start()$/;"	f
+value	core\_include\data_key.php	/^                $value = (int) $value;$/;"	v
+api_list	core\_include\data_pool.php	/^                            $api_list = isset($class::$api) && is_array($class::$api) ? array_keys($class::$api) : [];$/;"	v
+call_method	core\_include\data_pool.php	/^    private static function call_method(string $module, string $class, string $method)$/;"	f
+class	core\_include\data_pool.php	/^                    $class = load_lib($module, $library);$/;"	v
+cli	core\_include\data_pool.php	/^    public static $cli = [];$/;"	v
+cmd	core\_include\data_pool.php	/^            $cmd = array_filter($cmd);$/;"	v
+cmd	core\_include\data_pool.php	/^            $cmd = array_unique($cmd);$/;"	v
+cmd	core\_include\data_pool.php	/^            $cmd = explode(',', $data);$/;"	v
+cmd	core\_include\data_pool.php	/^        } else $cmd = [$data];$/;"	v
+data	core\_include\data_pool.php	/^        $data = 'cli' !== PHP_SAPI ? (!ENABLE_GET ? $_POST : $_REQUEST) : self::$cli;$/;"	v
+data	core\_include\data_pool.php	/^    public static $data = [];$/;"	v
+data_from	core\_include\data_pool.php	/^                        $data_from = [];$/;"	v
+data_pool	core\_include\data_pool.php	/^class data_pool$/;"	c
+difference	core\_include\data_pool.php	/^                                $difference = array_diff($class::$api[$method], $intersect);$/;"	v
+format	core\_include\data_pool.php	/^    public static $format = 'json';$/;"	v
+intersect	core\_include\data_pool.php	/^                                $intersect = array_intersect(self::$struct, $class::$api[$method]);$/;"	v
+key_from	core\_include\data_pool.php	/^                        $key_from = $keys[0] . '\/' . $keys[1] . '\/' . $keys[2];$/;"	v
+keymap	core\_include\data_pool.php	/^    private static $keymap = [];$/;"	v
+keys	core\_include\data_pool.php	/^                    $keys = explode('\/', $map_from);$/;"	v
+library	core\_include\data_pool.php	/^                $library = substr($item, $position + 1);$/;"	v
+map	core\_include\data_pool.php	/^            $map = array_filter($map);$/;"	v
+map	core\_include\data_pool.php	/^            $map = array_unique($map);$/;"	v
+map	core\_include\data_pool.php	/^            $map = explode(',', $data);$/;"	v
+map	core\_include\data_pool.php	/^        } else $map = [$data];$/;"	v
+map_from	core\_include\data_pool.php	/^                $map_from = substr($value, 0, $position);$/;"	v
+map_to	core\_include\data_pool.php	/^                $map_to = substr($value, $position + 1);$/;"	v
+method	core\_include\data_pool.php	/^        \/\/Get a reflection object for the class method$/;"	c
+method	core\_include\data_pool.php	/^    private static $method = [];$/;"	v
+method_api	core\_include\data_pool.php	/^                            $method_api = !empty(self::$method) ? array_intersect(self::$method, $api_list, $method_list) : array_intersect($api_list, $method_list);$/;"	v
+method_api	core\_include\data_pool.php	/^                            $method_api = array_intersect(self::$method, $method_list);$/;"	v
+method_list	core\_include\data_pool.php	/^                        $method_list = get_class_methods($class);$/;"	v
+module	core\_include\data_pool.php	/^                $module = substr($item, 0, $position);$/;"	v
+module	core\_include\data_pool.php	/^            foreach (self::$module as $module => $libraries) {$/;"	v
+module	core\_include\data_pool.php	/^    private static $module = [];$/;"	v
+parse_cmd	core\_include\data_pool.php	/^    private static function parse_cmd(string $data)$/;"	f
+parse_map	core\_include\data_pool.php	/^    private static function parse_map(string $data)$/;"	f
+pool	core\_include\data_pool.php	/^    public static $pool = [];$/;"	v
+position	core\_include\data_pool.php	/^            $position = strpos($item, '\/');$/;"	v
+position	core\_include\data_pool.php	/^            $position = strpos($value, ':');$/;"	v
+reflect	core\_include\data_pool.php	/^        $reflect = new \\ReflectionMethod($class, $method);$/;"	v
+result	core\_include\data_pool.php	/^                                    $result = $tmp;$/;"	v
+result	core\_include\data_pool.php	/^                $result = $class::$method();$/;"	v
+start	core\_include\data_pool.php	/^    public static function start()$/;"	f
+struct	core\_include\data_pool.php	/^    private static $struct = [];$/;"	v
+tmp	core\_include\data_pool.php	/^                                    $tmp = $result[$key];$/;"	v
+connect	core\_include\db_mysql.php	/^    public static function connect(): PDO$/;"	f
+db_mysql	core\_include\db_mysql.php	/^            $db_mysql = new \\PDO($dsn, $mysql_user, $mysql_pwd, $options);$/;"	v
+db_mysql	core\_include\db_mysql.php	/^class db_mysql$/;"	c
+dsn	core\_include\db_mysql.php	/^            $dsn     = 'mysql:host=' . $mysql_host . ';port=' . $mysql_port . ';dbname=' . $mysql_db . ';charset=' . $mysql_charset;$/;"	v
+mysql_charset	core\_include\db_mysql.php	/^        $mysql_charset = self::$mysql_charset ?? MySQL_CHARSET;$/;"	v
+mysql_db	core\_include\db_mysql.php	/^        $mysql_db      = self::$mysql_db ?? MySQL_DB;$/;"	v
+mysql_host	core\_include\db_mysql.php	/^        $mysql_host    = self::$mysql_host ?? MySQL_HOST;$/;"	v
+mysql_port	core\_include\db_mysql.php	/^        $mysql_port    = self::$mysql_port ?? MySQL_PORT;$/;"	v
+mysql_pwd	core\_include\db_mysql.php	/^        $mysql_pwd     = self::$mysql_pwd ?? MySQL_PWD;$/;"	v
+mysql_user	core\_include\db_mysql.php	/^        $mysql_user    = self::$mysql_user ?? MySQL_USER;$/;"	v
+options	core\_include\db_mysql.php	/^            $options = [$/;"	v
+connect	core\_include\db_redis.php	/^            $connect  = (self::$redis_persistent ?? Redis_PERSISTENT) ? 'pconnect' : 'connect';$/;"	v
+connect	core\_include\db_redis.php	/^    public static function connect(): Redis$/;"	f
+db_redis	core\_include\db_redis.php	/^            $db_redis = new \\Redis();$/;"	v
+db_redis	core\_include\db_redis.php	/^class db_redis$/;"	c
+redis_auth	core\_include\db_redis.php	/^        $redis_auth = self::$redis_auth ?? Redis_AUTH;$/;"	v
+redis_db	core\_include\db_redis.php	/^        $redis_db   = self::$redis_db ?? Redis_DB;$/;"	v
+redis_host	core\_include\db_redis.php	/^        $redis_host = self::$redis_host ?? Redis_HOST;$/;"	v
+redis_port	core\_include\db_redis.php	/^        $redis_port = self::$redis_port ?? Redis_PORT;$/;"	v
+begin_href	core\_include\html_pages.php	/^                $begin_href = 'href="' . $url . 1 . '"';$/;"	v
+data_show	core\_include\html_pages.php	/^    public static $data_show = 10; \/\/The quantity of data that shows in a page$/;"	v
+data_total	core\_include\html_pages.php	/^    public static $data_total = 0; \/\/The quantity of the data$/;"	v
+end_href	core\_include\html_pages.php	/^                $end_href   = 'href="' . $url . $pages . '"';$/;"	v
+get_page_section	core\_include\html_pages.php	/^    public static function get_page_section(): string$/;"	f
+html_codes	core\_include\html_pages.php	/^            $html_codes = ' <div class="pages"> <span class="page_btn"> ';$/;"	v
+html_codes	core\_include\html_pages.php	/^            $html_codes = '';$/;"	v
+html_pages	core\_include\html_pages.php	/^class html_pages$/;"	c
+key	core\_include\html_pages.php	/^        foreach ($query as $key => $values) {$/;"	v
+merge_query	core\_include\html_pages.php	/^    private static function merge_query(array $query): string$/;"	f
+next_href	core\_include\html_pages.php	/^                $next_href  = 'href="' . $url . $next_num . '"';$/;"	v
+next_num	core\_include\html_pages.php	/^            $next_num = self::$page_curr + 1;$/;"	v
+num	core\_include\html_pages.php	/^            foreach ($page_list as $num => $href) {$/;"	v
+page_class	core\_include\html_pages.php	/^                $page_class = self::$page_curr !== $num ? 'normal' : 'current';$/;"	v
+page_curr	core\_include\html_pages.php	/^    public static $page_curr = 1; \/\/Current page number$/;"	v
+page_end	core\_include\html_pages.php	/^            $page_end   = self::$page_curr + $page_kept;$/;"	v
+page_kept	core\_include\html_pages.php	/^            $page_kept = (int) (self::$page_show \/ 2);$/;"	v
+page_list	core\_include\html_pages.php	/^            $page_list = [];$/;"	v
+page_param	core\_include\html_pages.php	/^    public static $page_param = 'page'; \/\/Page parameter that passed in the url$/;"	v
+page_show	core\_include\html_pages.php	/^    public static $page_show = 5; \/\/Page numbers that shows in the page section, odd number to include the current page, even number to exclude the current page$/;"	v
+page_start	core\_include\html_pages.php	/^            $page_start = self::$page_curr - $page_kept;$/;"	v
+page_url	core\_include\html_pages.php	/^    public static $page_url = ''; \/\/URL that the page section leads to, full URL with query values should be passed here$/;"	v
+pages	core\_include\html_pages.php	/^            $pages = (int) ceil(self::$data_total \/ self::$data_show);$/;"	v
+prev_href	core\_include\html_pages.php	/^                $prev_href  = 'href="' . $url . $prev_num . '"';$/;"	v
+prev_href	core\_include\html_pages.php	/^                $prev_href = $begin_href = $next_href = $end_href = '';$/;"	v
+prev_num	core\_include\html_pages.php	/^            $prev_num = self::$page_curr - 1;$/;"	v
+query	core\_include\html_pages.php	/^                        $query = [];$/;"	v
+query_brackets	core\_include\html_pages.php	/^        $query_brackets = rawurlencode('[]');$/;"	v
+query_params	core\_include\html_pages.php	/^        $query_params   = [];$/;"	v
+query_value	core\_include\html_pages.php	/^        $query_value = '?' . implode('&', $query_params); \/\/Get the URL QUERY that with page param but without the page value$/;"	v
+show_begin	core\_include\html_pages.php	/^                    $show_begin = $show_scroll_prev = 'page_btn_hide';$/;"	v
+show_begin	core\_include\html_pages.php	/^                    $show_begin = $show_scroll_prev = 'page_btn_show';$/;"	v
+show_end	core\_include\html_pages.php	/^                    $show_end = $show_scroll_end = 'page_btn_hide';$/;"	v
+show_end	core\_include\html_pages.php	/^                    $show_end = $show_scroll_end = 'page_btn_show';$/;"	v
+show_next	core\_include\html_pages.php	/^                $show_next = $show_end = $show_scroll_end = 'page_btn_hide';$/;"	v
+show_next	core\_include\html_pages.php	/^                $show_next = 'page_btn_show';$/;"	v
+show_prev	core\_include\html_pages.php	/^                $show_prev = $show_begin = $show_scroll_prev = 'page_btn_hide';$/;"	v
+show_prev	core\_include\html_pages.php	/^                $show_prev = 'page_btn_show';$/;"	v
+start	core\_include\html_pages.php	/^                $start = $pages - self::$page_show + 1;$/;"	v
+stop	core\_include\html_pages.php	/^                $stop = $pages > self::$page_show ? self::$page_show : $pages;$/;"	v
+url	core\_include\html_pages.php	/^                    $url = $url_parts['path'] . self::merge_query($query);$/;"	v
+url	core\_include\html_pages.php	/^                    $url = '';$/;"	v
+url	core\_include\html_pages.php	/^                $url = '';$/;"	v
+url_parts	core\_include\html_pages.php	/^                $url_parts = parse_url(self::$page_url);$/;"	v
+access_key	core\_include\user_crypt.php	/^        $access_key = self::decode($access_key);$/;"	v
+create_key	core\_include\user_crypt.php	/^    public static function create_key(array $key_data): string$/;"	f
+decode	core\_include\user_crypt.php	/^    public static function decode(string $string): string$/;"	f
+encode	core\_include\user_crypt.php	/^    public static function encode(string $string): string$/;"	f
+get_codes	core\_include\user_crypt.php	/^    public static function get_codes(): string$/;"	f
+key_data	core\_include\user_crypt.php	/^        $key_data   = json_decode($access_key, true);$/;"	v
+user_crypt	core\_include\user_crypt.php	/^class user_crypt$/;"	c
+validate_key	core\_include\user_crypt.php	/^    public static function validate_key(string $access_key): array$/;"	f
+AJAX	core\_script\core.js	/^function AJAX(object) {$/;"	f
+API	core\_script\core.js	/^var API = 'http:\/\/dev.oobase.com\/api.php';$/;"	v
+FILE	core\_script\core.js	/^var FILE = 'https:\/\/file.oobase.com\/';$/;"	v
+HOST	core\_script\core.js	/^var HOST = 'www.oo.com';$/;"	v
+HttpRequest.onreadystatechange	core\_script\core.js	/^        HttpRequest.onreadystatechange = function () {$/;"	f
+IEAgent	core\_script\core.js	/^var IEAgent = \/(msie) ([\\w.]+)\/.exec(navigator.userAgent.toLowerCase());$/;"	v
+TimeToDate	core\_script\core.js	/^function TimeToDate(Timestamp, hasTime, hasSec) {$/;"	f
+function.defaultEvent	core\_script\core.js	/^        function defaultEvent(e) {$/;"	f
+getCookie	core\_script\core.js	/^function getCookie(Name) {$/;"	f
+keep_alive	core\_script\core.js	/^function keep_alive() {$/;"	f
+notice_close.onclick	core\_script\core.js	/^    notice_close.onclick = function () {$/;"	f
+phone_menu	core\_script\core.js	/^var phone_menu = document.getElementById('phone_menu');$/;"	v
+popup_top	core\_script\core.js	/^function popup_top(msg, style) {$/;"	f
+readFile	core\_script\core.js	/^function readFile(object, callback) {$/;"	f
+reader.onload	core\_script\core.js	/^    reader.onload = function () {$/;"	f
+saveAs	core\_script\core.js	/^function saveAs(Name, Value, Type) {$/;"	f
+setCookie	core\_script\core.js	/^function setCookie(Name, Value, ExpireDays) {$/;"	f
+set_lang	core\_script\core.js	/^function set_lang() {$/;"	f
+a	test.php	/^$a = new Reflection;$/;"	v
+array	test.php	/^\/\/ $array = array($/;"	v
+array_get	test.php	/^\/\/ $array_get = array('first_key', 'second_key', 'third_key');$/;"	v
+check_timeout	test.php	/^function check_timeout()$/;"	f
+dump	test.php	/^\/\/ $dump = $redis->mget($array_get);$/;"	v
+num	test.php	/^    $num = 1;$/;"	v
+redis	test.php	/^\/\/ $redis = new Redis();$/;"	v
+start_time	test.php	/^$start_time = time();$/;"	v
+timeout	test.php	/^    $timeout = 5;$/;"	v
+doc	test1.php	/^$doc = simplexml_load_file('test.xml');$/;"	v
+doc1	test1.php	/^$doc1 = json_encode($doc);$/;"	v
+doc2	test1.php	/^$doc2 = json_decode($doc1,true);$/;"	v
+num	test1.php	/^    $num = 1;$/;"	v
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_PROGRAM_VERSION	5.7	//
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/

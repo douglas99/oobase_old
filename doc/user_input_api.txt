@@ -1,0 +1,27 @@
+module: user/user_input
+
+method: 
+
+	save_user_head: 上传头像
+		1. user_head: (image file) (less than 8MB)
+		retuen: array('err', 'msg')
+
+	save_user_head_base64: 上传头像（base64 image data）
+		1. user_head_base64: (string), base64 image data (less than 8MB)
+		retuen: array('err', 'msg')
+
+	save_user_info: 保存文字类信息
+		1. user_birth: (string), birthday (format: 1986-01-01)
+		2. user_name: (string), nickname
+		3. user_gender: (int/string), gender, (0: secret; 1: male; 2: female)
+		4. user_intro: (string), introduction (string)
+		5. user_country: (string), country
+		6. user_province: (string), province
+		7. user_city: (string), city
+		8. user_location: (string), location
+		9. user_job: (string), job
+		return: array('err', 'msg')
+
+	follow_action: 关注/取消关注
+		1. follow_uuid: (string), followed/unfollowed user uuid
+		retuen: array('err' => (10143: followed; 10144: unfollowed), 'msg')

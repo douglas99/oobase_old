@@ -1,0 +1,48 @@
+module: user/user_output
+
+method:
+
+    get_credits: 获取特别感谢列表
+		retuen: array(user UUID list)
+
+	get_user_menu: 获取用户菜单
+		retuen: array(menu content)
+
+	get_user_list: 获取用户 UUID 列表
+		1. user_status: optional, (int/string), (0: blocked users; 1: normal users; default: not specific)
+		2. user_fetch: optional, (int/string), number of users in the list (default: all)
+		3. user_page: optional, (int/string), page number  (default: 1)
+		4. user_join: optional, (string), (DESC: order by user join time DESC; ASC: order by user join time ASC; default: DESC)
+		return: array(count, list content)
+
+	get_user_info: 获取用户简要信息
+		1. user_list: (string/array), user uuid list
+		return: array(user brief information list)
+
+	get_user_detail: 获取用户详细信息
+		1. user_list: (string/array), user uuid list
+		return: array(user detail information list)
+
+	get_user_log: 获取用户登录记录
+		1. user_uuid: (string), user uuid
+		return: array(user log list)
+
+	get_followed_cnt: 获取关注数量
+		1. followed_list: (string/array), user uuid list
+		return: array(uuid, followed count)
+
+	get_follower_cnt: 获取粉丝数量
+		1. follower_list: (string/array), user uuid list
+		return: array(uuid, follower count)
+
+	get_followed_list: 获取关注 UUID 列表
+		1. follower_uuid: (int/string)
+		2. followed_fetch: optional, (int/string), number of users in the list (default: all)
+		3. followed_page: optional, (int/string), page number (default: 1)
+		return: array(followed count, followed uuid list)
+
+	get_follower_list: 获取粉丝 UUID 列表
+		1. followed_uuid: (int/string)
+		2. follower_fetch: optional, (int/string), number of users in the list (default: all)
+		3. follower_page: optional, (int/string), page number (default: 1)
+		return: array(follower count, follower uuid list)

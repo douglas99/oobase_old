@@ -1,0 +1,28 @@
+module: note/note_input
+
+method: 
+
+	add_note: 提交笔记
+		1. project_uuid: (string), project uuid
+		2. note_text: (string), note content
+		3. to_root_id: optional, (int/string), main note id, (default: 0)
+		4. to_note_id: optional, (int/string), target reply to note id, (default: 0)
+		retuen: array('err', 'msg')
+
+	edit_note: 修改笔记
+		1. note_id: (int/string), note id
+		2. note_text: (string), note content
+		3. project_uuid: (string), project uuid
+		retuen: array('err', 'msg')
+
+	block_note: 屏蔽笔记
+	    Need administrator authority
+		1. note_id: (int/string), note id
+		2. project_uuid: (string), project uuid
+		retuen: array('err', 'msg')
+
+	unblock_note: 解封笔记
+	    Need administrator authority
+		1. note_id: (int/string), note id
+		2. project_uuid: (string), project uuid
+		retuen: array('err', 'msg')

@@ -1,0 +1,59 @@
+module: user/user_acc
+
+method: 
+
+	key_get: 获取开发者密钥
+		1. Access-Key containing online account (DEV Access-Key or user online Access-Key)
+		2. user_pwd: (string), the password of the online account
+		retuen: array('err', 'msg', 'Access-Key content')
+
+	key_sign: 签发正式密钥
+		need authority
+		1. user_uuid: (string), Access-Key owner's uuid
+		return: array('err', 'msg', 'url' => Access-Key download url)
+
+	key_detail: 获取密钥内容（仅限外部请求）
+		need Access-Key
+		return: array(Access-Key contents)
+
+	get_reg_code: 获取注册验证码
+		1. user_acc: (string), email address
+		return: array('err', 'msg')
+
+	get_pwd_code: 获取重置密码验证码
+		1. user_acc: (string), email address
+		return: array('err', 'msg')
+
+	user_join: 注册
+		1. user_acc: (string), email address
+		2. user_pwd: (string), password
+		3. pwd_cfm: (string), password again
+		4. auth_code: (string), auth code
+		return: array('err', 'msg')
+
+	user_login: 登录
+		1. user_acc: (string), email address
+		2. user_pwd: (string), password
+		3. auth_code: optional, (string), needed if failed more than 3 time
+		return: array('err', 'msg') + online Access-Key via HTTP HEAD
+
+	sign_out: 注销
+		1. Access-Key containing online account (DEV Access-Key or user online Access-Key)
+		return: array('err', 'msg')
+
+	chk_online: 检查在线情况
+		1. Access-Key containing online account (DEV Access-Key or user online Access-Key)
+		return: array('err', 'msg')
+
+	set_pwd: 修改密码
+		1. user_acc: (string), email address or account
+		2. user_pwd: (string), password
+		3. pwd_cfm: (string), password again
+		return: array('err', 'msg')
+
+	reset_pwd: 重置密码
+		1. user_acc: (string), email address or account
+		2. user_pwd: (string), password
+		3. pwd_cfm: (string), password again
+		4. auth_code: (string), auth code
+		return: array('err', 'msg')
